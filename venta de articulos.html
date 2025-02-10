@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #0b0f4b;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .back-to-home {
+            color: white;
+            padding: 10px 20px;
+            background-color: #0b0f4b;
+            border-radius: 5px;
+            text-decoration: none;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product {
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .product h2 {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+
+        .product p {
+            margin: 10px 0;
+        }
+
+        .product .stock {
+            font-weight: bold;
+            color: green;
+        }
+
+        .product button {
+            background-color: #0b0f4b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #cart {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0b0f4b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            z-index: 1000;
+            width: 80%;
+            max-width: 500px;
+            overflow-y: auto;
+        }
+
+        .cart-modal h3 {
+            text-align: center;
+        }
+
+        .cart-modal .cart-details {
+            margin: 10px 0;
+        }
+
+        .cart-modal .cart-details span {
+            font-weight: bold;
+        }
+
+        .cart-modal .cart-form input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .cart-modal .cart-form button {
+            background-color: #0b0f4b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .cart-modal .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #0b0f4b;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+
+        .cart-item span {
+            margin-right: 10px;
+        }
+
+        .remove-item {
+            color: red;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="Index.html" class="back-to-home">Regresar al Inicio</a>
+    <h1>
+        <img src="LOGO SMART.png" alt="Logo" class="logo">
+        Ventas de Artículos Tecnológicos SMART PC
+    </h1>
+</header>
+
+<section class="product-container">
+    <!-- Productos -->
+    <article class="product">
+        <img src="FLASH 32 GB ADATA.png" alt="Producto 1">
+        <h2>Flash Memory Adata 32 GB</h2>
+        <p>Perfecta para Almacenar su información</p>
+        <p class="price">Precio: $8.50</p>
+        <p class="stock">En stock: 5</p>
+       
+    </article>
+
+    <article class="product">
+        <img src="San disk 32 gb metalica.png" alt="Producto 2">
+        <h2>Flash Memory San Disk de 32 GB Metalica</h2>
+        <p>Perfecta para Almacenar su información marca San Disk Metalica</p>
+        <p class="price">Precio: $12</p>
+        <p class="stock">En stock: 4</p>
+       
+    </article>
+
+    <article class="product">
+        <img src="disco solido.png" alt="Producto 3">
+        <h2>Disco Solido Marca Kingston</h2>
+        <p>Disco Solido Marca Kingston de 960 GB Perfecto para Acelerar su computador</p>
+        <p class="price">Precio: $68</p>
+        <p class="stock">En stock: 15</p>
+        
+    </article>
+
+    <article class="product">
+        <img src="ssd 240 gb ADATA.png" alt="Producto 4">
+        <h2>Disco Solido Marca ADATA de 240 GB</h2>
+        <p>Perfecto para Acelerar su computador.</p>
+        <p class="price">Precio: $28</p>
+        <p class="stock">En stock: 10</p>
+       
+    </article>
+
+    <article class="product">
+        <img src="flash 64 gb.png" alt="Producto 5">
+        <h2>Flash Memory de 64 GB</h2>
+        <p>Flas Memory KINGSTON DataTravelExodia de 64 gb.</p>
+        <p class="price">Precio: $12</p>
+        <p class="stock">En stock: 3</p>
+        
+    </article>
+
+    <article class="product">
+        <img src="tintas genericas.png" alt="Producto 25">
+        <h2>Tinta Genérica para Impresoras</h2>
+        <p>Tinta genérica compatible con la mayoría de impresoras de inyección. Ideal para impresión de documentos y fotos.</p>
+        <p class="price">Precio: $15</p>
+        <p class="stock">En stock: 30</p>
+        
+    </article>
+    
+
+    <article class="product">
+        <img src="tintaas originales epson.png" alt="Producto 26">
+        <h2>Tinta Original para Impresoras</h2>
+        <p>Tinta original compatible con modelos específicos de impresoras. Garantiza calidad de impresión superior y durabilidad.</p>
+        <p class="price">Precio: $25</p>
+        <p class="stock">En stock: 20</p>
+       
+    </article>
+    
+</section>
+//carrito
+<script>
+    let carrito = [];
+
+    function agregarAlCarrito(nombre, precio) {
+        carrito.push({ nombre, precio });
+        actualizarCarrito();
+        animarCarrito();
+    }
+
+    function actualizarCarrito() {
+        const cartItemsContainer = document.getElementById('cartItems');
+        const subtotalElement = document.getElementById('cartSubtotal');
+        const ivaElement = document.getElementById('cartIva');
+        const totalElement = document.getElementById('cartTotal');
+        
+        cartItemsContainer.innerHTML = '';
+        carrito.forEach((producto, index) => {
+            const itemDiv = document.createElement('div');
+            itemDiv.classList.add('cart-item');
+            itemDiv.innerHTML = `
+                <span>${producto.nombre} - $${producto.precio.toFixed(2)}</span>
+                <span class="remove-item" onclick="eliminarDelCarrito(${index})">X</span>
+            `;
+            cartItemsContainer.appendChild(itemDiv);
+        });
+
+        const subtotal = carrito.reduce((acc, producto) => acc + producto.precio, 0);
+        const iva = subtotal * 0.15;
+        const total = subtotal + iva;
+
+        subtotalElement.textContent = subtotal.toFixed(2);
+        ivaElement.textContent = iva.toFixed(2);
+        totalElement.textContent = total.toFixed(2);
+    }
+
+    function eliminarDelCarrito(index) {
+        carrito.splice(index, 1);
+        actualizarCarrito();
+    }
+
+    function animarCarrito() {
+        const cartIcon = document.getElementById('cart');
+        cartIcon.style.animation = 'none';
+        setTimeout(() => {
+            cartIcon.style.animation = 'bounce 1s infinite alternate';
+        }, 10);
+    }
+
+    function mostrarCarrito() {
+        document.getElementById('cartModal').style.display = 'block';
+    }
+
+    function cerrarCarrito() {
+        document.getElementById('cartModal').style.display = 'none';
+    }
+
+    function confirmarCompra() {
+        const nombre = document.getElementById('name').value;
+        const ciudad = document.getElementById('ciudad').value;
+        const calle = document.getElementById('calle').value;
+        const cedula = document.getElementById('cedula').value;
+
+        // Verificar si los campos están vacíos
+        if (!nombre || !ciudad || !calle || !cedula) {
+            alert("Por favor, complete todos los campos antes de confirmar la compra.");
+            return;
+        }
+
+        let mensaje = `Detalles de la compra:\n\n`;
+
+carrito.forEach(producto => {
+    mensaje += `${producto.nombre} - $${producto.precio.toFixed(2)}\n`;
+});
+
+const subtotal = carrito.reduce((acc, producto) => acc + producto.precio, 0);
+const iva = subtotal * 0.15;
+const total = subtotal + iva;
+
+mensaje += `\nSubtotal: $${subtotal.toFixed(2)}`;
+mensaje += `\nIVA (15%): $${iva.toFixed(2)}`;
+mensaje += `\nTotal: $${total.toFixed(2)}`;
+
+mensaje += `\n\nDatos de Factura:\n`; // Título de los datos de la factura
+mensaje += `\nNombre: ${nombre}`;
+mensaje += `\nCédula/RUC: ${cedula}`;
+mensaje += `\nCiudad: ${ciudad}`;
+mensaje += `\nCalle: ${calle}`;
+
+let telefono = '+593997497545'; // Cambia este número por tu número real de WhatsApp
+let url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+
+window.location.href = url;
+
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
